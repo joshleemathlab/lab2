@@ -1,0 +1,2 @@
+This is for the lab-2-joshleemathlab CLASSROOM, so git push to 
+https://github.com/joshleemathlab/lab2
