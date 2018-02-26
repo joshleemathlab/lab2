@@ -1,94 +1,141 @@
-<!--<!DOCTYPE html>
-<html>
-  <head>
-    <title>Lab 2</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-      
-    <div class="main" >
-        
-        <ul class="menu">
-        <li class="menu"><a href="index.html" class="menu">Weather</a></li>
-        <li class="menu"><a href="stack.html" class="menu">Stack Overflow</a></li>
-        </ul>
-        <h1>WEATHER</h1>
-
-        <p>This is where I'll put weather</p>
-        
-        <footer>
-            <hr>
-            <p style="text-align: right">JOSH LEE || <a href="https://github.com/joshleemathlab/lab2" target="_blank">My GitHub URL</a></p>
-        </footer>
-    </div>
-
-      
-      
-      
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script text="type/javascript" src="/script.js">
-    </script>
-
-  </body>
-</html>
--->
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      * {
+          box-sizing: border-box;
+      }
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-* {
-    box-sizing: border-box;
-}
 
+      @media only screen and (max-width: 768px) {
+          /* For mobile phones: */
+          [class*="col-"] {
+              width: 100%;
+          }
+      }
+    </style>
+    <title> Lab 2 - Weather </title>
+    <!--<script>
+      var openWeatherAppID = '59c55959ab6c0e43bda4bf8e417fcb5a', openWeatherUrl = 'http://api.openweathermap.org/data/2.5/forecast'
+      
+      var prepareData = function(units){
+        var cityName = $('#city-name').val()
+        if (cutyName && cityName != ''){
+          cityNAme = cityName.trim()
+          getData(openWeatherUrl,cityName,openWeatherAppID,units)
+        }
+        else{
+          alert('Please enter the city name')
+        }
+      }
 
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    [class*="col-"] {
-        width: 100%;
-    }
-}
-</style>
+      function getData(url, cityName, appID, units){
+        var request = $.ajax({
+          url: url,
+          dataType: "jsonp",
+          data:{q: cityNAme, appid: appId, units:units},
+          jsonCallback: "fetchData",
+          type: "GET"
+        })
+      }
+      function fetchData(forecast){
+        
+      }
+      $(document).ready(function(){
+        $('.btn-metric').click(function(){
+          prepareData('metric')
+        })
+        $('.btn-metric').click(function(){
+          prepareData('imperial')
+        })
+      })
+    </script>-->
 </head>
+
+
 <body>
-
-<div class="header">
-  <h1>Lab 2</h1>
-</div>
-
-<div class="row">
-<div class="col-3 menu">
-  <ul>
-    <li>Home</li>
-    <li><a href="index.html">Weather</a></li>
-    <li><a href="stack.html">Stack Overflow</a></li>
-  </ul>
-</div>
-
-<div class="col-6">
-  <h1>Weather</h1>
-  <p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p>
-</div>
-
-<div class="col-3 right">
-  <div class="aside">
-    <h2>What?</h2>
-    <p>Chania is a city on the island of Crete.</p>
-    <h2>Where?</h2>
-    <p>Crete is a Greek island in the Mediterranean Sea.</p>
-    <h2>How?</h2>
-    <p>You can reach Chania airport from all over Europe.</p>
+  <div class="top-container">
+    <h1>Lab 2</h1>
   </div>
-</div>
+      
+  <!--MENUBAR-->
+  <div class="header" id="myHeader">
+        <ul class="menu">
+        <li class="menu"><a href="index.html" class="menu">Home</a></li>
+        <!--<li class="menu"><a href="stack.html" class="menu">Stack Overflow</a></li>-->
+        <li class="menu"><a href="About.html" class="menu">About</a></li>
+        </ul>
+  </div>
+    
+  <div class="top-container2">
+    <h1>Weather</h1>
+  </div>
+  <!--CONTENT FOR WEATHER-->
+  <div class="content">
+      <form>
+        <label>Enter a U.S. city</label><br/>
+        <input id="weatherInput" type"text"></input><br/>
+        <input id="weatherSubmit" type="submit" value="Farenheight"></input>
+        <input id="weatherCelSubmit" type="submit" value="Celcius"></input>
+      </form>
+    <p id="weatherResults"></p>
+    <p id="weatherTempResults"></p>
+    <p id="weatherCelResults"></p>
+  </div>
 
-</div>
+  <div class="top-container2">
+    <h1>Stack Overflow</h1>
+  </div>
 
-<div class="footer">
-  <p>Resize the browser window to see how the content respond to the resizing.</p>
-</div>
+  <!--CONTENT FOR STACK-->
+  <div class="content">
+      <form>
+          <!--a
+href="https://api.stackexchange.com/2.2/search?order=desc&sort=activity&site=stackoverflow&intitle=javascript">Stack
+Overflow API</a>-->
+        <label>Enter a query</label><br/>
+        <input id="stackInput" type"text"></input><br/>
+        <input id="stackSubmit" type="submit" value="Get Info"></input>
+      </form>
+    <p id="stackResults"></p>
+        <!--<script>
+          var url = "http://api.openweathermap.org/data/2.5/weather?q=cityName&APPID=59c55959ab6c0e43bda4bf8e417fcb5a&units=metric";
+        </script>
+        <button onclick="displayTemp()" >Click for Temp</button>
+        <input type="button" value="click" onclick="displayTemp">-
+        <script>
+          function displayTemp(){
+            document.getElementById("demo").innerHTML = weather.main.temp();
+          }
+        </script>
+        <p id="demo"> </p>--> 
 
+  </div>
+
+  <!--FOOTER-->
+  <div class="footer">
+          <p style="text-align: right">JOSH LEE || <a href="https://github.com/joshleemathlab/theshop" target="_blank">My GitHub URL</a></p></footer>
+  </div>
+
+  <!--SCRIPTS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script text="type/javascript" src="/script.js"></script>
+  <!--STICKY HEADER-->
+  <script>
+    window.onscroll = function() {myFunction()};
+
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+
+
+    @media only screen and (max-width: 768px) {
+        /* For mobile phones: */
+        [class*="col-"] {
+            width: 100%;
+        }
+    }
+    </style>
+    <title> Lab 2 - About </title>
+</head>
+
+
+<body>
+  <div class="top-container">
+    <h1>About</h1>
+  </div>
+      
+  <!--MENUBAR-->
+  <div class="header" id="myHeader">
+        <ul class="menu">
+        <li class="menu"><a href="index.html" class="menu">Home</a></li>
+        <!--<li class="menu"><a href="stack.html" class="menu">Stack Overflow</a></li>-->
+        <li class="menu"><a href="About.html" class="menu">About</a></li>
+        </ul>
+  </div>
+
+  <!--CONTENT-->
+  <div class="content">
+       <p>Here is the Complete Readme for the necessary lab.</p>
+<h2>Weather API</h2>
+<p>In <code>index.html</code>, build a form that includes a text input and a submit button:</p><p>Then, in <code>scripts.js</code> do the following:</p><p>Create a JavaScript event handler that triggers when the Submit
+button is clicked. Inside this handler, use the value of the input
+field to send a request to the <a href="https://openweathermap.org/api" rel="nofollow">OpenWeatherMap
+API</a> to get the current weather for
+that city. See
+<a href="https://github.com/BYU-CS260-Winter-2018/lab2/wiki/Weather-API">the Wiki page on the Weather API</a>
+for helpful information.</p><p>Once this is done, add some additional information from the returned
+weather info.</p><p><strong>Optional</strong>: Add data from the forecast, which requires another API call.</p>
+       <h2>Stack Overflow</h2>
+       <p>In <code>index.html</code>, build a form that includes a text input and a submit
+button, similar to the one for weather, but instead for querying Stack
+Overflow.  Then, in <code>scripts.js</code> do the following:</p><p>Create a JavaScript event handler that triggers when the Submit
+button is clicked. Inside this handler, use the value of the input
+field to send a request to the <a href="https://api.stackexchange.com/2.2/search?order=desc&amp;sort=activity&amp;site=stackoverflow&amp;intitle=javascript" rel="nofollow">Stack
+Overflow API</a> to get a list of matching questions. Click the link
+above to see an example of searching for <code>JavaScript</code>.  You can view
+the <a href="https://api.stackexchange.com/docs/search" rel="nofollow">API documentation</a> for
+guidance. You can also use console output to inspect the returned JSON
+from this API, like we show in the Wiki, and figure out the format
+from there. <strong>This part you will do on your own.</strong></p>
+
+  </div>
+      
+
+  <!--FOOTER-->
+  <div class="footer">
+          <p style="text-align: right">JOSH LEE || <a href="https://github.com/joshleemathlab/theshop" target="_blank">My GitHub URL</a></p></footer>
+  </div>
+
+  <!--SCRIPTS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script text="type/javascript" src="/script.js"></script>
+  <!--STICKY HEADER-->
+  <script>
+  window.onscroll = function() {myFunction()};
+
+  var header = document.getElementById("myHeader");
+  var sticky = header.offsetTop;
+
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+  }
+  </script>
+</body>
+</html>
