@@ -31,9 +31,9 @@ li a:hover {
 }
 
 .footer{
-    bottom:0;
-    position: fixed;
-    background-color: #08B0E8;
+    bottom:10;
+    
+    
     width: 100%;
 }
 
@@ -63,6 +63,7 @@ body {
 
 .content {
   padding: 16px;
+  margin-bottom: 30px;
 }
 
 .sticky {
