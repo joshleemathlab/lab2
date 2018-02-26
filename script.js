@@ -110,10 +110,7 @@ $(document).ready(function() {
         e.preventDefault();
         var value = $("#stackInput").val();
         console.log(value);
-         /*var myURL= "http://api.openweathermap.org/data/2.5/weather?q=" + stuff + ",US&units=imperial" + "59c55959ab6c0e43bda4bf8e417fcb5a";*/
-        var myURL= "http://api.openweathermap.org/data/2.5/weather?q=" + value + "&APPID=59c55959ab6c0e43bda4bf8e417fcb5a&units=metric"
-    //var myURL= "http://api.openweathermap.org/data/2.5/weather?q=Boston&APPID=59c55959ab6c0e43bda4bf8e417fcb5a&units=metric"
-    
+        var myURL= "https://api.stackexchange.com/2.2/search?order=desc&sort=activity&site=stackoverflow&intitle=javascript"    
 
         $.ajax({
         url : myURL,
@@ -121,14 +118,11 @@ $(document).ready(function() {
         success : function(JSON) {
             console.log(JSON);
             var SResults="";
-            SResults += '<h2>Weather in ' + JSON.name + "</h2>";
-            for (var i=0; i<JSON.weather.length; i++) {
-                SResults += '<img src="http://openweathermap.org/img/w/' + JSON.weather[i].icon + '.png"/>';
-                for (var k=0; k<JSON.weather.length; k++) {
-                    SResults += JSON.weather[k].description;
-                    if (k !== JSON.weather.length - 1){
-                        SResults +="</p>";
-                    }
+            //SResults += '<h2>Weather in ' + JSON.name + "</h2>";
+            for (var i=0; i<JSON.items.length; i++) {
+                SResults += "<a href=\"" + JSON.items[i].link + "\">" + JSON.items[i].title + "</a>";
+                if (i !== JSON.items.length - 1){
+                    SResults +="</p>";
                 }
             }
         $("#stackResults").html(SResults);
